@@ -10,15 +10,15 @@
   <body>
     <h1>Ready to play... AND Drink !</h1>
 
-    <button id="start-button">Start Game</button>
+    <button id="start-button" onclick="startgame()">Start Game</button>
 
     <div class="interface">
-      <button>Lower</button>
-      <div class="display">5</div>
-      <button>Higher</button>
+      <button onclick="lower()" >Lower</button>
+      <div id="display"></div>
+      <button onclick="higher()" >Higher</button>
     </div>
-
-    <div id="counter">Potential sips: 0</div>
+    
+    <div id="counter"></div>
     <button id="restart-button">Restart</button>
   </body>
 </html>
