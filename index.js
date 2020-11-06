@@ -24,6 +24,7 @@ function randomNumber() {
 
 // Gets a key and checks if it is true, then sets it to false
 function getValidNumber() {
+    if (!tjek()) return;
     let key = randomNumber();
     while (!opt.get(key)) {
         key = randomNumber();
@@ -36,6 +37,7 @@ function getValidNumber() {
 // Func knap til over
 function higher() {
     const nextnumber = getValidNumber()
+    if (nextnumber == null) return alert("The deck is empty!");
     const currentnumber = parseInt(document.getElementById("display").innerText);
     if (currentnumber < nextnumber) {
         counter++;
@@ -51,6 +53,7 @@ function higher() {
 // Func knap til under
 function lower() {
     const nextnumber = getValidNumber()
+    if (nextnumber == null) return alert("The deck is empty!");
     const currentnumber = parseInt(document.getElementById("display").innerText);
     if (currentnumber > nextnumber) {
         counter++;
@@ -64,3 +67,11 @@ function lower() {
 }
 
 // Func knap restart game (tømmer listen)
+
+// tjek om der er flere tal
+function tjek() {
+    for (let i = 0, len = opt.size; i < len; i++) {
+        if (opt.get(i+1)) return true;
+    }
+    return false;
+}
